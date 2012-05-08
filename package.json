@@ -1,0 +1,20 @@
+{
+  "author": "Ivan Akimov <ivan@grather.com> (http://hashids.org)",
+  "name": "hashids",
+  "description": "A tiny JavaScript class to generate YouTube-like hashes from one or many ids.",
+  "version": "0.1.0",
+  "preferGlobal": true,
+  "homepage": "http://hashids.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivanakimov/hashids.js"
+  },
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "license": "MIT",
+  "engines": {
+    "node": "*"
+  }
+}
