@@ -45,10 +45,10 @@ All integers are expected to be positive.
 To encode a single number:
 	
 ```javascript
-	var hashids = require('hashids');
-	var hashids = new hashids('this is my salt');
-	
-	var hash = hashids.encode(12345);
+var hashids = require('hashids');
+var hashids = new hashids('this is my salt');
+
+var hash = hashids.encode(12345);
 ```
 
 var `hash` is now going to be:
@@ -58,10 +58,10 @@ var `hash` is now going to be:
 To encode multiple numbers into one hash:
 	
 ```javascript
-	var hashids = require('hashids');
-	var hashids = new hashids('this is my salt');
-	
-	var hash = hashids.encode(683, 94108, 123, 5);
+var hashids = require('hashids');
+var hashids = new hashids('this is my salt');
+
+var hash = hashids.encode(683, 94108, 123, 5);
 ```
 
 var `hash` is now going to be:
@@ -73,21 +73,21 @@ var `hash` is now going to be:
 Hash decoding is done using the same salt value that you have used during encoding:
 
 ```javascript
-	var hashids = require('hashids');
-	var hashids = new hashids('this is my salt');
-	
-	var hash1 = hashids.decode('7OR');
-	console.log(hash1);
-	
-	var hash2 = hashids.decode('nEFOM6s7wI6');
-	console.log(hash2);
+var hashids = require('hashids');
+var hashids = new hashids('this is my salt');
+
+var hash1 = hashids.decode('7OR');
+console.log(hash1);
+
+var hash2 = hashids.decode('nEFOM6s7wI6');
+console.log(hash2);
 ```
 
 Output will be:
 
 ```javascript
-	[ 12345 ]
-	[ 683, 94108, 762, 4 ]
+[ 12345 ]
+[ 683, 94108, 762, 4 ]
 ```
 
 ## Security
@@ -99,10 +99,10 @@ Having said that, this class does try to make these hashes un-guessable and uniq
 Let's for example look at the following code:
 
 ```javascript
-	var hashids = require('hashids');
-	var hashids = new hashids('this is my salt');
-	
-	var hash = hashids.encode(5, 5, 5, 5);
+var hashids = require('hashids');
+var hashids = new hashids('this is my salt');
+
+var hash = hashids.encode(5, 5, 5, 5);
 ```
 
 var `hash` will be:
@@ -114,10 +114,10 @@ You don't see any repeating patterns that might show there's 4 identical numbers
 Same with incremented numbers:
 
 ```javascript
-	var hashids = require('hashids');
-	var hashids = new hashids('this is my salt');
-	
-	var hash = hashids.encode(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+var hashids = require('hashids');
+var hashids = new hashids('this is my salt');
+
+var hash = hashids.encode(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 ```
 
 var `hash` will be :
