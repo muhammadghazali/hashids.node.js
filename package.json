@@ -1,8 +1,8 @@
 {
   "author": "Ivan Akimov <ivan@grather.com> (http://hashids.org)",
   "name": "hashids",
-  "description": "A tiny JavaScript class to generate YouTube-like hashes from one or many ids.",
-  "version": "0.1.0",
+  "description": "A tiny Node.js module to generate YouTube-like hashes from one or many ids.",
+  "version": "0.1.1",
   "preferGlobal": true,
   "homepage": "http://hashids.org",
   "repository": {
@@ -10,10 +10,13 @@
     "url": "https://github.com/ivanakimov/hashids.js"
   },
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "crypto": ""
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "license": "MIT",
+  "keywords": ["hashids", "hash", "ids", "youtube"],
   "engines": {
     "node": "*"
   }
