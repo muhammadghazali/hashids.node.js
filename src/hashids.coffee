@@ -81,13 +81,12 @@ module.exports = class hashids
 			hashArray = subHash.split ' '
 			
 			for subHash, i in hashArray
-				if subHash
-					
-					number = @unhash subHash, alphabet
-					numbers.push number
-					
-					if i + 1 < hashArray.length
-						alphabet = @shuffle alphabet, @salt + subHash
+				
+				number = @unhash subHash, alphabet
+				numbers.push number
+				
+				if i + 1 < hashArray.length
+					alphabet = @shuffle alphabet, @salt + subHash
 				
 		numbers
 		
