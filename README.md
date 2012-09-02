@@ -28,7 +28,7 @@ All integers need to be greater than or equal to zero.
 1. Grab Node.js and install if you haven't already: [http://nodejs.org/download/](http://nodejs.org/download/)
 2. Install using npm:
 	
-	npm install hashids
+	`npm install hashids`
 	
 ## Sample usage
 
