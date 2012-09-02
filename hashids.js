@@ -8,7 +8,7 @@
 	hashids may be freely distributed under the MIT license.
 */
 
-var hashids
+var hashids;
 module.exports = hashids = (function() {
 	
 	function hashids(salt, minHashLength, alphabet) {
