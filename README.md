@@ -38,10 +38,10 @@ You can pass a unique salt value so your hashes differ from everyone else's. I u
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	hash = hashes.encrypt(1234);
+var hash = hashes.encrypt(1234);
 ```
 
 `hash` is now going to be:
@@ -54,10 +54,10 @@ Notice during decryption, same salt value is used:
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	numbers = hashes.decrypt("xEXn");
+var numbers = hashes.decrypt("xEXn");
 ```
 
 `numbers` is now going to be:
@@ -70,10 +70,10 @@ Decryption will not work if salt is changed:
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my pepper");
 
-var hashes = new hashids("this is my pepper"),
-	numbers = hashes.decrypt("xEXn");
+var numbers = hashes.decrypt("xEXn");
 ```
 
 `numbers` is now going to be:
@@ -84,10 +84,10 @@ var hashes = new hashids("this is my pepper"),
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	hash = hashes.encrypt(683, 94108, 123, 5);
+var hash = hashes.encrypt(683, 94108, 123, 5);
 ```
 
 `hash` is now going to be:
@@ -98,10 +98,10 @@ var hashes = new hashids("this is my salt"),
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	numbers = hashes.decrypt("zKphM54nuAyu5");
+var numbers = hashes.decrypt("zKphM54nuAyu5");
 ```
 
 `numbers` is now going to be:
@@ -114,10 +114,10 @@ Here we encrypt integer 1, and set the minimum hash length to **17** (by default
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt", 17);
 
-var hashes = new hashids("this is my salt", 17),
-	hash = hashes.encrypt(1);
+var hash = hashes.encrypt(1);
 ```
 
 `hash` is now going to be:
@@ -128,10 +128,10 @@ var hashes = new hashids("this is my salt", 17),
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt", 17);
 
-var hashes = new hashids("this is my salt", 17),
-	numbers = hashes.decrypt("7rKjHrjiMRirLkHyr");
+var numbers = hashes.decrypt("7rKjHrjiMRirLkHyr");
 ```
 
 `numbers` is now going to be:
@@ -144,10 +144,10 @@ Here we set the alphabet to consist of only four letters: "abcd"
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt", 0, "abcd");
 
-var hashes = new hashids("this is my salt", 0, "abcd"),
-	hash = hashes.encrypt(1, 2, 3, 4, 5);
+var hash = hashes.encrypt(1, 2, 3, 4, 5);
 ```
 
 `hash` is now going to be:
@@ -163,10 +163,10 @@ Having said that, this algorithm does try to make these hashes unguessable and u
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	hash = hashes.encrypt(5, 5, 5, 5);
+var hash = hashes.encrypt(5, 5, 5, 5);
 ```
 
 You don't see any repeating patterns that might show there's 4 identical numbers in the hash:
@@ -177,10 +177,10 @@ Same with incremented numbers:
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	hash = hashes.encrypt(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+var hash = hashes.encrypt(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 ```
 
 `hash` will be :
@@ -191,10 +191,10 @@ var hashes = new hashids("this is my salt"),
 
 ```javascript
 
-var hashids = require('hashids');
+var hashids = require('hashids'),
+	hashes = new hashids("this is my salt");
 
-var hashes = new hashids("this is my salt"),
-	hash1 = hashes.encrypt(1), /* MR */
+var hash1 = hashes.encrypt(1), /* MR */
 	hash2 = hashes.encrypt(2), /* ed */
 	hash3 = hashes.encrypt(3), /* o9 */
 	hash4 = hashes.encrypt(4), /* 4n */
