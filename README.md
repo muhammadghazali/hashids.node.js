@@ -38,7 +38,7 @@ You can pass a unique salt value so your hashes differ from everyone else's. I u
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var hash = hashes.encrypt(1234);
@@ -54,7 +54,7 @@ Notice during decryption, same salt value is used:
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var numbers = hashes.decrypt("xEXn");
@@ -70,7 +70,7 @@ Decryption will not work if salt is changed:
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my pepper");
 
 var numbers = hashes.decrypt("xEXn");
@@ -84,7 +84,7 @@ var numbers = hashes.decrypt("xEXn");
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var hash = hashes.encrypt(683, 94108, 123, 5);
@@ -98,7 +98,7 @@ var hash = hashes.encrypt(683, 94108, 123, 5);
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var numbers = hashes.decrypt("zKphM54nuAyu5");
@@ -114,7 +114,7 @@ Here we encrypt integer 1, and set the minimum hash length to **17** (by default
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt", 17);
 
 var hash = hashes.encrypt(1);
@@ -128,7 +128,7 @@ var hash = hashes.encrypt(1);
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt", 17);
 
 var numbers = hashes.decrypt("7rKjHrjiMRirLkHyr");
@@ -144,7 +144,7 @@ Here we set the alphabet to consist of only four letters: "abcd"
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt", 0, "abcd");
 
 var hash = hashes.encrypt(1, 2, 3, 4, 5);
@@ -163,7 +163,7 @@ Having said that, this algorithm does try to make these hashes unguessable and u
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var hash = hashes.encrypt(5, 5, 5, 5);
@@ -177,7 +177,7 @@ Same with incremented numbers:
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var hash = hashes.encrypt(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
@@ -191,7 +191,7 @@ var hash = hashes.encrypt(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 ```javascript
 
-var hashids = require('hashids'),
+var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
 var hash1 = hashes.encrypt(1), /* MR */
