@@ -1,18 +1,16 @@
 {
-  "author": "Ivan Akimov <ivan@grather.com> (http://hashids.org)",
+  "author": "Ivan Akimov <ivan@grather.com> (https://twitter.com/ivanakimov)",
   "name": "hashids",
-  "description": "A tiny Node.js module to generate YouTube-like hashes from one or many ids.",
-  "version": "0.1.1",
+  "description": "A small Node.js class to generate YouTube-like hashes from one or many numbers. Use hashids when you do not want to expose your database ids to the user. ",
+  "version": "0.1.2",
   "preferGlobal": true,
-  "homepage": "http://hashids.org",
+  "homepage": "http://www.hashids.org/node-js/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ivanakimov/hashids.js"
+    "url": "https://github.com/ivanakimov/hashids.node.js"
   },
   "main": "index.js",
-  "dependencies": {
-    "crypto": ""
-  },
+  "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
   "license": "MIT",

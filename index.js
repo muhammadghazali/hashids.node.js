@@ -1,1 +1,1 @@
-module.exports = require('./lib/hashids');
+module.exports = require('./hashids');
