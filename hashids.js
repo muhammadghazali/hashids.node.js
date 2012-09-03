@@ -81,7 +81,7 @@ module.exports = hashids = (function() {
 			return ret;
 		
 		for (var i = 0, len = numbers.length; i != len; i++) {
-			if (typeof numbers[i] != "number" || numbers[i] < 0)
+			if (typeof numbers[i] !== "number" || numbers[i] % 1 != 0 || numbers[i] < 0)
 				return ret;
 		}
 		
