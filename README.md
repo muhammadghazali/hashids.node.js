@@ -30,7 +30,7 @@ All integers need to be greater than or equal to zero.
 	
 	`npm install hashids`
 	
-## Sample usage
+## Usage
 
 #### Encrypting one number
 
@@ -41,12 +41,12 @@ You can pass a unique salt value so your hashes differ from everyone else's. I u
 var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
-var hash = hashes.encrypt(1234);
+var hash = hashes.encrypt(12345);
 ```
 
 `hash` is now going to be:
 	
-	xEXn
+	ryKo
 
 #### Decrypting
 
@@ -57,12 +57,12 @@ Notice during decryption, same salt value is used:
 var hashids = require("hashids"),
 	hashes = new hashids("this is my salt");
 
-var numbers = hashes.decrypt("xEXn");
+var numbers = hashes.decrypt("ryKo");
 ```
 
 `numbers` is now going to be:
 	
-	[ 1234 ]
+	[ 12345 ]
 
 #### Decrypting with different salt
 
@@ -73,7 +73,7 @@ Decryption will not work if salt is changed:
 var hashids = require("hashids"),
 	hashes = new hashids("this is my pepper");
 
-var numbers = hashes.decrypt("xEXn");
+var numbers = hashes.decrypt("ryKo");
 ```
 
 `numbers` is now going to be:
@@ -110,28 +110,28 @@ var numbers = hashes.decrypt("zKphM54nuAyu5");
 	
 #### Encrypting and specifying minimum hash length
 
-Here we encrypt integer 1, and set the minimum hash length to **17** (by default it's **0** -- meaning hashes will be the shortest possible length).
+Here we encrypt integer 1, and set the minimum hash length to **8** (by default it's **0** -- meaning hashes will be the shortest possible length).
 
 ```javascript
 
 var hashids = require("hashids"),
-	hashes = new hashids("this is my salt", 17);
+	hashes = new hashids("this is my salt", 8);
 
 var hash = hashes.encrypt(1);
 ```
 
 `hash` is now going to be:
 	
-	7rKjHrjiMRirLkHyr
+	rjiMRirL
 	
 #### Decrypting
 
 ```javascript
 
 var hashids = require("hashids"),
-	hashes = new hashids("this is my salt", 17);
+	hashes = new hashids("this is my salt", 8);
 
-var numbers = hashes.decrypt("7rKjHrjiMRirLkHyr");
+var numbers = hashes.decrypt("rjiMRirL");
 ```
 
 `numbers` is now going to be:
@@ -201,6 +201,29 @@ var hash1 = hashes.encrypt(1), /* MR */
 	hash5 = hashes.encrypt(5); /* a5 */
 ```
 
+## Speed
+
+Even though speed is an important factor of every hashing algorithm, primary goal here was encoding several numbers at once and making the hash unique and random.
+
+With Node 0.8.8, on a *2.7 GHz Intel Core i7 with 16GB of RAM*, it takes roughly **0.08 seconds** to:
+
+1. Encrypt 1000 hashes consisting of 1 integer `hashids.encrypt(12);`
+2. And decrypt these 1000 hashes back into integers `hashids.decrypt(hash);` while ensuring they are valid
+
+If we do the same with 3 integers, for example: `hashids.encrypt(10, 11, 12);`
+-- the number jumps up to **0.13 seconds** on the same machine.
+
+*Sidenote: The numbers tested with were relatively small -- if you increase them, the speed will obviously decrease.*
+
+#### What you could do to speed it up
+
+Usually people either encrypt or decrypt one hash per request, so the algorithm should already be fast enough for that.
+However, there are still several things you could do:
+
+1. If you are generating a lot of hashes at once, wrap this class in your own so you can cache hashes.
+2. Use [MongoDB](http://www.mongodb.org/) or [Redis](http://redis.io/).
+3. You could also decrease the length of your alphabet. Your hashes will become longer, but calculating them will be faster.
+
 ## Bad hashes
 
 I wrote this class with the intent of placing these hashes in visible places - like the URL. If I create a unique hash for each user, it would be unfortunate if the hash ended up accidentally being a bad word. Imagine auto-creating a URL with hash for your user that looks like this - `http://example.com/user/a**hole`
@@ -232,6 +255,12 @@ Therefore, this algorithm tries to avoid generating most common English curse wo
 **0.1.0**
 	
 - First commit
+
+## Contact
+
+Follow me [@IvanAkimov](http://twitter.com/ivanakimov)
+
+Or [http://ivanakimov.com](http://ivanakimov.com)
 
 ## License
 
